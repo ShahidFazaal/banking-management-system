@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="822.0" prefWidth="1292.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminPanelController">
+   <children>
+      <Pane layoutX="4.0" layoutY="5.0" prefHeight="813.0" prefWidth="315.0" style="-fx-background-color: #5c5c8a;">
+         <children>
+            <Label fx:id="lblTime" contentDisplay="CENTER" layoutX="59.0" layoutY="21.0" prefHeight="53.0" prefWidth="220.0" text="Time" textFill="WHITE">
+               <font>
+                  <Font size="36.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDate" alignment="CENTER" layoutX="4.0" layoutY="74.0" prefHeight="35.0" prefWidth="269.0" text="Date" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <VBox layoutX="4.0" layoutY="377.0" prefHeight="200.0" prefWidth="308.0">
+               <children>
+                  <JFXButton fx:id="btnUsers" onAction="#btnUsers_OnAction" prefHeight="47.0" prefWidth="308.0" text="Users" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="btnBranch" onAction="#btnBranch_onAction" prefHeight="47.0" prefWidth="308.0" text="Branches" textFill="WHITE">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </Pane>
+      <Pane fx:id="pnUsers" layoutX="325.0" layoutY="5.0" prefHeight="813.0" prefWidth="962.0" style="-fx-background-color: #d4c4c4;" visible="false">
+         <children>
+            <TextField layoutX="443.0" layoutY="154.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField layoutX="443.0" layoutY="194.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField layoutX="443.0" layoutY="230.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField layoutX="443.0" layoutY="268.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField layoutX="443.0" layoutY="303.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField layoutX="443.0" layoutY="337.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField layoutX="443.0" layoutY="372.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField layoutX="443.0" layoutY="407.0" prefHeight="26.0" prefWidth="322.0" />
+            <Label layoutX="319.0" layoutY="157.0" text="User ID:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="290.0" layoutY="197.0" text="UserName:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="352.0" layoutY="233.0" text="NIC:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="265.0" layoutY="271.0" text="Date Of Birth:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="299.0" layoutY="306.0" text="Password:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="256.0" layoutY="341.0" text="Email Address:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="320.0" layoutY="375.0" text="Branch:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="296.0" layoutY="410.0" text="User Role:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="559.0" layoutY="458.0" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #00e600;" text="Add" />
+            <JFXButton layoutX="667.0" layoutY="458.0" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #ff3333;" text="Delete" />
+            <TableView layoutX="4.0" layoutY="529.0" prefHeight="280.0" prefWidth="951.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="User ID" />
+                <TableColumn prefWidth="119.0" text="User Name" />
+                  <TableColumn prefWidth="103.0" text="NIC" />
+                  <TableColumn prefWidth="116.0" text="DOB" />
+                  <TableColumn prefWidth="136.0" text="Password" />
+                  <TableColumn prefWidth="111.0" text="Email" />
+                  <TableColumn prefWidth="131.0" text="Branch" />
+                  <TableColumn prefWidth="158.0" text="User Role" />
+              </columns>
+            </TableView>
+            <JFXButton layoutX="445.0" layoutY="103.0" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #00e600;" text="New User" />
+         </children>
+      </Pane>
+      <Pane fx:id="pnBranches" layoutX="324.0" layoutY="6.0" prefHeight="813.0" prefWidth="962.0" style="-fx-background-color: #d4c4c4;" visible="false">
+         <children>
+            <TextField layoutX="353.0" layoutY="204.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField layoutX="353.0" layoutY="246.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField layoutX="353.0" layoutY="297.0" prefHeight="26.0" prefWidth="322.0" />
+            <TableView layoutX="6.0" layoutY="540.0" prefHeight="267.0" prefWidth="951.0">
+              <columns>
+                <TableColumn prefWidth="276.0" text="Branch Id" />
+                <TableColumn prefWidth="359.0" text="Contact Number" />
+                  <TableColumn prefWidth="315.0" text="Location" />
+              </columns>
+            </TableView>
+            <JFXButton layoutX="438.0" layoutY="362.0" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #00e600;" text="Add" />
+            <JFXButton layoutX="563.0" layoutY="362.0" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #ff3333;" text="Delete" />
+            <Label layoutX="211.0" layoutY="207.0" text="Branch Id:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="148.0" layoutY="249.0" text="Contact Number:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="219.0" layoutY="300.0" text="Location">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="787.0" layoutY="59.0" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #00e600;" text="New Branch" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
