@@ -14,7 +14,7 @@ public class AppInitializer extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(this.getClass().getResource("view/Dashboard.fxml"));
+        Parent root = FXMLLoader.load(this.getClass().getResource("view/AdminPanel.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Banking Management System");
