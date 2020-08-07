@@ -5,11 +5,11 @@ import java.sql.Date;
 
 public class Customer implements SuperEntity {
     private String nic;
-    private int accountNumber;
+    private String accountNumber;
     private String accountType;
     private String customerName;
     private String emailAddress;
-    private int contactNumber;
+    private String contactNumber;
     private Date dob;
     private String gender;
     private BigDecimal accountBalance;
@@ -19,7 +19,7 @@ public class Customer implements SuperEntity {
     public Customer() {
     }
 
-    public Customer(String nic, int accountNumber, String accountType, String customerName, String emailAddress, int contactNumber, Date dob, String gender, BigDecimal accountBalance, String branch, BigDecimal initialDeposit) {
+    public Customer(String nic, String accountNumber, String accountType, String customerName, String emailAddress, String contactNumber, Date dob, String gender, BigDecimal accountBalance, String branch, BigDecimal initialDeposit) {
         this.nic = nic;
         this.accountNumber = accountNumber;
         this.accountType = accountType;
@@ -41,11 +41,11 @@ public class Customer implements SuperEntity {
         this.nic = nic;
     }
 
-    public int getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(int accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 
@@ -73,11 +73,11 @@ public class Customer implements SuperEntity {
         this.emailAddress = emailAddress;
     }
 
-    public int getContactNumber() {
+    public String getContactNumber() {
         return contactNumber;
     }
 
-    public void setContactNumber(int contactNumber) {
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 

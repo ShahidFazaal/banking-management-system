@@ -5,7 +5,7 @@ import java.sql.Date;
 
 public class Transaction implements SuperEntity {
     private String transactionId;
-    private int accountNumber;
+    private String accountNumber;
     private String transactionType;
     private Date date;
     private BigDecimal transactionAmount;
@@ -15,7 +15,7 @@ public class Transaction implements SuperEntity {
     public Transaction() {
     }
 
-    public Transaction(String transactionId, int accountNumber, String transactionType, Date date, BigDecimal transactionAmount, String userId, String branch) {
+    public Transaction(String transactionId, String accountNumber, String transactionType, Date date, BigDecimal transactionAmount, String userId, String branch) {
         this.transactionId = transactionId;
         this.accountNumber = accountNumber;
         this.transactionType = transactionType;
@@ -33,11 +33,11 @@ public class Transaction implements SuperEntity {
         this.transactionId = transactionId;
     }
 
-    public int getAccountNumber() {
+    public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(int accountNumber) {
+    public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 

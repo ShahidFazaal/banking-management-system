@@ -3,13 +3,13 @@ package entity;
 public class Branch implements SuperEntity {
     private String branchId;
     private String location;
-    private int phone;
+    private String phone;
     private String email;
 
     public Branch() {
     }
 
-    public Branch(String branchId, String location, int phone, String email) {
+    public Branch(String branchId, String location, String phone, String email) {
         this.branchId = branchId;
         this.location = location;
         this.phone = phone;
@@ -32,11 +32,11 @@ public class Branch implements SuperEntity {
         this.location = location;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
