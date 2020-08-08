@@ -42,4 +42,14 @@ public class UserDAOImpl implements UserDAO {
     public boolean delete(String key) throws Exception {
         return CrudUtil.execute("DELETE FROM `User` WHERE userId=?",key);
     }
+
+    @Override
+    public String getLastUserId() throws Exception {
+        ResultSet resultSet = CrudUtil.execute("SELECT userId FROM `User` ORDER BY userId DESC LIMIT 1");
+        if (resultSet.next()){
+            return resultSet.getString(1);
+        }else {
+            return null;
+        }
+    }
 }

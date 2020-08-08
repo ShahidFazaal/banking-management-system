@@ -1,4 +1,6 @@
 package business.custom.impl;
 
-public class TransactionBOImpl {
+import business.custom.TransactionBO;
+
+public class TransactionBOImpl implements TransactionBO {
 }

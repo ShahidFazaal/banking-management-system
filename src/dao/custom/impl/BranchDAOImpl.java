@@ -43,4 +43,14 @@ public class BranchDAOImpl implements BranchDAO {
     public boolean delete(String key) throws Exception {
         return CrudUtil.execute("DELETE FROM Branch WHERE branchId =?",key);
     }
+
+    @Override
+    public String getLastBranchId() throws Exception {
+        ResultSet rst = CrudUtil.execute("SELECT branchId FROM Branch ORDER BY branchId DESC LIMIT 1 ");
+        if (rst.next()) {
+            return rst.getString(1);
+        }else{
+            return null;
+        }
+    }
 }

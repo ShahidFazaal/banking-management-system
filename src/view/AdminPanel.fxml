@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -9,7 +11,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="822.0" prefWidth="1292.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AdminPanelController">
    <children>
@@ -41,16 +42,13 @@
             </VBox>
          </children>
       </Pane>
-      <Pane fx:id="pnUsers" layoutX="325.0" layoutY="5.0" prefHeight="813.0" prefWidth="962.0" style="-fx-background-color: #d4c4c4;" visible="false">
+      <Pane fx:id="pnUsers" layoutX="325.0" layoutY="5.0" prefHeight="813.0" prefWidth="962.0" style="-fx-background-color: #d4c4c4;">
          <children>
-            <TextField layoutX="443.0" layoutY="154.0" prefHeight="26.0" prefWidth="322.0" />
-            <TextField layoutX="443.0" layoutY="194.0" prefHeight="26.0" prefWidth="322.0" />
-            <TextField layoutX="443.0" layoutY="230.0" prefHeight="26.0" prefWidth="322.0" />
-            <TextField layoutX="443.0" layoutY="268.0" prefHeight="26.0" prefWidth="322.0" />
-            <TextField layoutX="443.0" layoutY="303.0" prefHeight="26.0" prefWidth="322.0" />
-            <TextField layoutX="443.0" layoutY="337.0" prefHeight="26.0" prefWidth="322.0" />
-            <TextField layoutX="443.0" layoutY="372.0" prefHeight="26.0" prefWidth="322.0" />
-            <TextField layoutX="443.0" layoutY="407.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField fx:id="txtUserId" editable="false" layoutX="443.0" layoutY="154.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField fx:id="txtUserName" layoutX="443.0" layoutY="194.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField fx:id="txtNic" layoutX="443.0" layoutY="230.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField fx:id="txtPassword" layoutX="443.0" layoutY="303.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField fx:id="txtEmail" layoutX="443.0" layoutY="337.0" prefHeight="26.0" prefWidth="322.0" />
             <Label layoutX="319.0" layoutY="157.0" text="User ID:">
                <font>
                   <Font size="18.0" />
@@ -91,37 +89,41 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <JFXButton layoutX="559.0" layoutY="458.0" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #00e600;" text="Add" />
-            <JFXButton layoutX="667.0" layoutY="458.0" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #ff3333;" text="Delete" />
-            <TableView layoutX="4.0" layoutY="529.0" prefHeight="280.0" prefWidth="951.0">
+            <JFXButton fx:id="btnUserAdd" layoutX="559.0" layoutY="458.0" onAction="#btnUserAdd_OnAction" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #00e600;" text="Add" />
+            <JFXButton fx:id="btnUserDelete" layoutX="667.0" layoutY="458.0" onAction="#btnUserDelete_OnAction" prefHeight="26.0" prefWidth="100.0" style="-fx-background-color: #ff3333;" text="Delete" />
+            <TableView fx:id="tblUsers" layoutX="4.0" layoutY="529.0" prefHeight="280.0" prefWidth="951.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="User ID" />
-                <TableColumn prefWidth="119.0" text="User Name" />
-                  <TableColumn prefWidth="103.0" text="NIC" />
-                  <TableColumn prefWidth="116.0" text="DOB" />
-                  <TableColumn prefWidth="136.0" text="Password" />
-                  <TableColumn prefWidth="111.0" text="Email" />
-                  <TableColumn prefWidth="131.0" text="Branch" />
-                  <TableColumn prefWidth="158.0" text="User Role" />
+                <TableColumn prefWidth="75.0" style="-fx-alignment: top-center;" text="User ID" />
+                <TableColumn prefWidth="119.0" style="-fx-alignment: top-center;" text="User Name" />
+                  <TableColumn prefWidth="103.0" style="-fx-alignment: top-center;" text="NIC" />
+                  <TableColumn prefWidth="116.0" style="-fx-alignment: top-center;" text="DOB" />
+                  <TableColumn prefWidth="136.0" style="-fx-alignment: top-center;" text="Password" />
+                  <TableColumn prefWidth="111.0" style="-fx-alignment: top-center;" text="Email" />
+                  <TableColumn prefWidth="131.0" style="-fx-alignment: top-center;" text="Branch" />
+                  <TableColumn prefWidth="158.0" style="-fx-alignment: top-center;" text="User Role" />
               </columns>
             </TableView>
-            <JFXButton layoutX="445.0" layoutY="103.0" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #00e600;" text="New User" />
+            <JFXButton fx:id="btnNewUser" layoutX="445.0" layoutY="103.0" onAction="#btnNewUser_OnAction" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #00e600;" text="New User" />
+            <ComboBox fx:id="cmbUBranch" layoutX="445.0" layoutY="373.0" prefHeight="26.0" prefWidth="322.0" promptText="Select the branch" />
+            <ComboBox fx:id="cmbUserRole" layoutX="445.0" layoutY="408.0" prefHeight="26.0" prefWidth="322.0" promptText="Select the user Role" />
+            <DatePicker fx:id="dtpDOB" layoutX="445.0" layoutY="269.0" prefHeight="26.0" prefWidth="315.0" />
          </children>
       </Pane>
       <Pane fx:id="pnBranches" layoutX="324.0" layoutY="6.0" prefHeight="813.0" prefWidth="962.0" style="-fx-background-color: #d4c4c4;" visible="false">
          <children>
-            <TextField layoutX="353.0" layoutY="204.0" prefHeight="26.0" prefWidth="322.0" />
-            <TextField layoutX="353.0" layoutY="246.0" prefHeight="26.0" prefWidth="322.0" />
-            <TextField layoutX="353.0" layoutY="297.0" prefHeight="26.0" prefWidth="322.0" />
-            <TableView layoutX="6.0" layoutY="540.0" prefHeight="267.0" prefWidth="951.0">
+            <TextField fx:id="txtBranchId" editable="false" layoutX="353.0" layoutY="204.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField fx:id="txtBContact" layoutX="353.0" layoutY="246.0" prefHeight="26.0" prefWidth="322.0" />
+            <TextField fx:id="txtBLocation" layoutX="353.0" layoutY="297.0" prefHeight="26.0" prefWidth="322.0" />
+            <TableView fx:id="tblBranch" layoutX="6.0" layoutY="540.0" prefHeight="267.0" prefWidth="951.0">
               <columns>
-                <TableColumn prefWidth="276.0" text="Branch Id" />
-                <TableColumn prefWidth="359.0" text="Contact Number" />
-                  <TableColumn prefWidth="315.0" text="Location" />
+                <TableColumn prefWidth="232.0" style="-fx-alignment: top-center;" text="Branch Id" />
+                <TableColumn prefWidth="232.0" style="-fx-alignment: top-center;" text="Location" />
+                  <TableColumn prefWidth="281.0" style="-fx-alignment: top-center;" text="Phone" />
+                  <TableColumn prefWidth="280.0" style="-fx-alignment: top-center;" text="Email" />
               </columns>
             </TableView>
-            <JFXButton layoutX="438.0" layoutY="362.0" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #00e600;" text="Add" />
-            <JFXButton layoutX="563.0" layoutY="362.0" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #ff3333;" text="Delete" />
+            <JFXButton fx:id="btnAddBranch" layoutX="438.0" layoutY="381.0" onAction="#btnAddBranch_OnAction" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #00e600;" text="Add" />
+            <JFXButton fx:id="btnDeleteBranch" layoutX="563.0" layoutY="381.0" onAction="#btnDeleteBranch_OnAction" prefHeight="26.0" prefWidth="112.0" style="-fx-background-color: #ff3333;" text="Delete" />
             <Label layoutX="211.0" layoutY="207.0" text="Branch Id:">
                <font>
                   <Font size="18.0" />
@@ -132,12 +134,18 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="219.0" layoutY="300.0" text="Location">
+            <Label layoutX="219.0" layoutY="300.0" text="Location:">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <JFXButton layoutX="787.0" layoutY="59.0" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #00e600;" text="New Branch" />
+            <JFXButton fx:id="btnNewBranch" layoutX="787.0" layoutY="59.0" onAction="#btnNewBranch_OnAction" prefHeight="26.0" prefWidth="120.0" style="-fx-background-color: #00e600;" text="New Branch" />
+            <TextField fx:id="txtBEmail" layoutX="353.0" layoutY="336.0" prefHeight="26.0" prefWidth="322.0" />
+            <Label layoutX="244.0" layoutY="339.0" text="Email:">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
