@@ -43,4 +43,14 @@ public class CustomerDAOImpl implements CustomerDAO {
     public boolean delete(String key) throws Exception {
         return CrudUtil.execute("DELETE FROM Customer WHERE accountNumber=? OR nic =?",key,key);
     }
+
+    @Override
+    public String getLastAccountNumber() throws Exception {
+        ResultSet rst = CrudUtil.execute("SELECT accountNumber FROM Customer ORDER BY accountNumber DESC LIMIT 1");
+        if (rst.next()){
+            return rst.getString(1);
+        }else {
+            return null;
+        }
+    }
 }
