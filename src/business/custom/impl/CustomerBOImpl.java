@@ -5,6 +5,8 @@ import dao.DAOFactory;
 import dao.DAOType;
 import dao.SuperDAO;
 import dao.custom.CustomerDAO;
+import dao.custom.QueryDAO;
+import entity.CustomEntity;
 import entity.Customer;
 import util.CustomerTM;
 
@@ -15,6 +17,7 @@ import java.util.List;
 
 public class CustomerBOImpl implements CustomerBO {
     CustomerDAO customerDAO = DAOFactory.getInstance().getDAO(DAOType.CUSTOMER);
+    QueryDAO queryDAO = DAOFactory.getInstance().getDAO(DAOType.QUERY);
     @Override
     public String generateNewAccountNumber() throws Exception {
 
@@ -50,5 +53,21 @@ public class CustomerBOImpl implements CustomerBO {
             customerAccounts.add(new CustomerTM(customer.getNic(),customer.getAccountNumber(),customer.getAccountType(),customer.getCustomerName(),customer.getEmailAddress(),customer.getContactNumber(),customer.getDob(),customer.getGender(),customer.getAccountBalance(),customer.getBranch(),customer.getInitialDeposit()));
         }
         return customerAccounts;
+    }
+
+    @Override
+    public CustomerTM getAccount(String accountNumber) throws Exception {
+        Customer customer = customerDAO.find(accountNumber);
+        return new CustomerTM(customer.getNic(),customer.getAccountNumber(),customer.getAccountType(),customer.getCustomerName(),customer.getEmailAddress(),customer.getContactNumber(),customer.getDob(),customer.getGender(),customer.getAccountBalance(),customer.getBranch(), customer.getInitialDeposit());
+    }
+
+    @Override
+    public CustomEntity getJoinAccount(String search) throws Exception {
+        return queryDAO.getCustomerDetails(search) ;
+    }
+
+    @Override
+    public boolean deleteAccount(String accountNumber) throws Exception {
+        return customerDAO.delete(accountNumber);
     }
 }

@@ -361,7 +361,7 @@ public class AdminPanelController {
 
     public void btnDeleteBranch_OnAction(ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION,
-                "Are you sure whether you want to delete this customer?",
+                "Are you sure whether you want to delete this Branch?",
                 ButtonType.YES, ButtonType.NO);
         Optional<ButtonType> buttonType = alert.showAndWait();
 
@@ -371,7 +371,7 @@ public class AdminPanelController {
                 System.out.println(branchId);
                 boolean result= branchBO.deleteBranch(branchId);
                 if (!result){
-                    new Alert(Alert.AlertType.ERROR, "Failed to delete the customer", ButtonType.OK).show();
+                    new Alert(Alert.AlertType.ERROR, "Failed to delete the Branch", ButtonType.OK).show();
                 }else {
                     tblBranch.getSelectionModel().clearSelection();
                     loadAllBranches();

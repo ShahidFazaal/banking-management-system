@@ -14,7 +14,7 @@ public class TransactionDAOImpl implements TransactionDAO {
         ResultSet rst = CrudUtil.execute("SELECT * FROM `Transaction`");
         ArrayList<Transaction> transactions = new ArrayList<>();
         while (rst.next()){
-            transactions.add(new Transaction(rst.getString(1),rst.getString(2),rst.getString(3),rst.getDate(4),rst.getBigDecimal(5),rst.getString(6),rst.getString(7)));
+            transactions.add(new Transaction(rst.getInt(1),rst.getString(2),rst.getString(3),rst.getDate(4),rst.getBigDecimal(5),rst.getString(6),rst.getString(7)));
         }
         return transactions;
     }
@@ -23,7 +23,7 @@ public class TransactionDAOImpl implements TransactionDAO {
     public Transaction find(String pk) throws Exception {
         ResultSet rst = CrudUtil.execute("SELECT * FROM `Transaction` WHERE transactionId=?", pk);
         if (rst.next()){
-            return new Transaction(rst.getString(1),rst.getString(2),rst.getString(3),rst.getDate(4),rst.getBigDecimal(5),rst.getString(6),rst.getString(7));
+            return new Transaction(rst.getInt(1),rst.getString(2),rst.getString(3),rst.getDate(4),rst.getBigDecimal(5),rst.getString(6),rst.getString(7));
         }
         return null;
     }
@@ -41,5 +41,14 @@ public class TransactionDAOImpl implements TransactionDAO {
     @Override
     public boolean delete(String key) throws Exception {
         return CrudUtil.execute("DELETE FROM `Transaction` WHERE transactionId =?",key);
+    }
+    @Override
+    public List<Transaction> getTransaction(String pk) throws Exception {
+        ResultSet rst = CrudUtil.execute("SELECT * FROM `Transaction` WHERE accountNumber=?", pk);
+        ArrayList<Transaction> transactions = new ArrayList<>();
+        while (rst.next()){
+            transactions.add(new Transaction(rst.getInt(1),rst.getString(2),rst.getString(3),rst.getDate(4),rst.getBigDecimal(5),rst.getString(6),rst.getString(7)));
+        }
+        return transactions;
     }
 }

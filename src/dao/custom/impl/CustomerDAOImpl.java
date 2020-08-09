@@ -4,6 +4,7 @@ import dao.CrudUtil;
 import dao.custom.CustomerDAO;
 import entity.Customer;
 
+import java.math.BigDecimal;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -52,5 +53,10 @@ public class CustomerDAOImpl implements CustomerDAO {
         }else {
             return null;
         }
+    }
+
+    @Override
+    public boolean updateAccountBalance(String accountNumber, BigDecimal depositAmount) throws Exception {
+        return CrudUtil.execute("UPDATE Customer SET accountBalance=accountBalance+? WHERE accountNumber=?",depositAmount,accountNumber);
     }
 }

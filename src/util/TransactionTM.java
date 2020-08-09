@@ -1,9 +1,11 @@
-package entity;
+package util;
+
+import entity.SuperEntity;
 
 import java.math.BigDecimal;
 import java.sql.Date;
 
-public class Transaction implements SuperEntity {
+public class TransactionTM implements SuperEntity {
     private int transactionId;
     private String accountNumber;
     private String transactionType;
@@ -12,10 +14,10 @@ public class Transaction implements SuperEntity {
     private String userId;
     private String branch;
 
-    public Transaction() {
+    public TransactionTM() {
     }
 
-    public Transaction(int transactionId, String accountNumber, String transactionType, Date date, BigDecimal transactionAmount, String userId, String branch) {
+    public TransactionTM(int transactionId, String accountNumber, String transactionType, Date date, BigDecimal transactionAmount, String userId, String branch) {
         this.transactionId = transactionId;
         this.accountNumber = accountNumber;
         this.transactionType = transactionType;

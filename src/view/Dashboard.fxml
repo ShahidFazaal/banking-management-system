@@ -99,8 +99,8 @@
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="167.0" prefWidth="322.0">
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d4c4c4" height="182.0" layoutX="378.0" layoutY="112.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.4" width="509.0" />
-                        <TextField layoutX="565.0" layoutY="145.0" prefHeight="26.0" prefWidth="306.0" />
-                        <TextField layoutX="565.0" layoutY="180.0" prefHeight="26.0" prefWidth="308.0" />
+                        <TextField fx:id="txtDepositAccountNumber" layoutX="565.0" layoutY="145.0" onAction="#txtDepositAccountNumber_OnAction" prefHeight="26.0" prefWidth="306.0" />
+                        <TextField fx:id="txtDepositNic" layoutX="565.0" layoutY="180.0" prefHeight="26.0" prefWidth="308.0" />
                         <Label layoutX="394.0" layoutY="150.0" text="Account number :">
                            <font>
                               <Font size="18.0" />
@@ -111,15 +111,15 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <JFXButton layoutX="777.0" layoutY="235.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #00e600;" text="Search" />
+                        <JFXButton fx:id="btnDepositsearch" layoutX="777.0" layoutY="235.0" onAction="#btnDepositsearch_OnAction" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #00e600;" text="Search" />
                         <Label layoutX="394.0" layoutY="102.0" text="Search Account">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="243.0" layoutY="364.0" prefHeight="26.0" prefWidth="306.0" />
-                        <TextField layoutX="243.0" layoutY="403.0" prefHeight="26.0" prefWidth="306.0" />
-                        <TextField layoutX="243.0" layoutY="446.0" prefHeight="26.0" prefWidth="306.0" />
+                        <TextField fx:id="txtDepositCustomerName" layoutX="243.0" layoutY="364.0" prefHeight="26.0" prefWidth="306.0" />
+                        <TextField fx:id="txtDepositCurrentBalance" layoutX="243.0" layoutY="403.0" prefHeight="26.0" prefWidth="306.0" />
+                        <TextField fx:id="txtDepostAmmount" layoutX="243.0" layoutY="446.0" prefHeight="26.0" prefWidth="306.0" />
                         <Label layoutX="52.0" layoutY="367.0" text="Customer Name :">
                            <font>
                               <Font size="18.0" />
@@ -135,7 +135,7 @@
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <JFXButton layoutX="457.0" layoutY="496.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #00e600;" text="Deposit" />
+                        <JFXButton fx:id="btnDeposit" layoutX="457.0" layoutY="496.0" onAction="#btnDeposit" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #00e600;" text="Deposit" />
                      </children></AnchorPane>
             </content>
           </Tab>
@@ -186,47 +186,53 @@
                      <children>
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d4c4c4" height="235.0" layoutX="339.0" layoutY="365.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.4" width="554.0" />
                         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d4c4c4" height="182.0" layoutX="339.0" layoutY="130.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.4" width="554.0" />
-                        <TextField layoutX="577.0" layoutY="424.0" prefHeight="26.0" prefWidth="308.0" />
                         <Label layoutX="369.0" layoutY="146.0" text="Account number :">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <JFXButton layoutX="782.0" layoutY="240.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #00e600;" text="Search" />
+                        <JFXButton fx:id="btnCBSearch" layoutX="782.0" layoutY="240.0" onAction="#btnCBSearch_onAction" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #00e600;" text="Search" />
                         <Label layoutX="408.0" layoutY="185.0" text="NIC Number :">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="578.0" layoutY="383.0" prefHeight="26.0" prefWidth="306.0" />
-                        <TextField layoutX="566.0" layoutY="182.0" prefHeight="26.0" prefWidth="308.0" />
+                        <TextField fx:id="txtCBCustomername" editable="false" layoutX="578.0" layoutY="383.0" prefHeight="26.0" prefWidth="306.0" />
+                        <TextField fx:id="txtCBNic" editable="false" layoutX="566.0" layoutY="182.0" prefHeight="26.0" prefWidth="308.0" />
                         <Label layoutX="371.0" layoutY="386.0" text="Customer Name :">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="372.0" layoutY="427.0" text="Current Balance :">
+                        <Label layoutX="544.0" layoutY="462.0" text="Current Balance">
                            <font>
                               <Font size="18.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="567.0" layoutY="143.0" prefHeight="26.0" prefWidth="306.0" />
+                        <TextField fx:id="txtCBAccountNumber" layoutX="567.0" layoutY="143.0" onAction="#txtCBAccountNumber_OnAction" prefHeight="26.0" prefWidth="306.0" />
+                        <Label fx:id="lblCBCurrentBalance" layoutX="350.0" layoutY="506.0" prefHeight="70.0" prefWidth="539.0" style="-fx-alignment: center;" text="00000" textAlignment="CENTER">
+                           <font>
+                              <Font size="46.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblCBCurrentBalance1" layoutX="371.0" layoutY="506.0" prefHeight="70.0" prefWidth="126.0" style="-fx-alignment: center;" text="LKR" textAlignment="CENTER">
+                           <font>
+                              <Font size="40.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
               </content>
             </Tab>
             <Tab text="Account Details">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" onKeyPressed="#ad_OnKeyPressed" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField layoutX="589.0" layoutY="276.0" prefHeight="26.0" prefWidth="262.0" />
-                        <TextField layoutX="589.0" layoutY="361.0" prefHeight="26.0" prefWidth="262.0" />
-                        <TextField layoutX="589.0" layoutY="444.0" prefHeight="26.0" prefWidth="262.0" />
-                        <TextField layoutX="589.0" layoutY="402.0" prefHeight="26.0" prefWidth="262.0" />
-                        <TextField layoutX="589.0" layoutY="487.0" prefHeight="26.0" prefWidth="262.0" />
-                        <TextField layoutX="589.0" layoutY="147.0" prefHeight="26.0" prefWidth="262.0" />
-                        <TextField layoutX="589.0" layoutY="527.0" prefHeight="26.0" prefWidth="262.0" />
-                        <TextField layoutX="589.0" layoutY="109.0" prefHeight="26.0" prefWidth="262.0" />
-                        <TextField layoutX="589.0" layoutY="319.0" prefHeight="26.0" prefWidth="262.0" />
+                        <TextField fx:id="txtDCustomerName" layoutX="589.0" layoutY="276.0" prefHeight="26.0" prefWidth="262.0" />
+                        <TextField fx:id="txtDEmailAddress" layoutX="589.0" layoutY="444.0" prefHeight="26.0" prefWidth="262.0" />
+                        <TextField fx:id="txtDAccountBalance" layoutX="589.0" layoutY="487.0" prefHeight="26.0" prefWidth="262.0" />
+                        <TextField fx:id="txtDInitialDeposit" layoutX="589.0" layoutY="527.0" prefHeight="26.0" prefWidth="262.0" />
+                        <TextField fx:id="txtDNic" layoutX="589.0" layoutY="109.0" onAction="#txtDNic_OnAction" prefHeight="26.0" prefWidth="262.0" />
+                        <TextField fx:id="txtDContactNumber" layoutX="589.0" layoutY="319.0" prefHeight="26.0" prefWidth="262.0" />
                         <Label layoutX="404.0" layoutY="279.0" prefHeight="21.0" prefWidth="169.0" text="Customer Name :">
                            <font>
                               <Font size="18.0" />
@@ -282,8 +288,17 @@
                               <Image url="@../asset/images.png" />
                            </image>
                         </ImageView>
-                        <TextField layoutX="589.0" layoutY="70.0" prefHeight="26.0" prefWidth="262.0" />
-                        <JFXButton layoutX="768.0" layoutY="590.0" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: #00e600;" text="Update" />
+                        <TextField fx:id="txtDAccountNumber" layoutX="589.0" layoutY="70.0" onAction="#txtDAccountNumber_OnAction" prefHeight="26.0" prefWidth="262.0" />
+                        <JFXButton fx:id="btnDUpdate" layoutX="767.0" layoutY="612.0" onAction="#btnDUpdate_OnAction" prefHeight="26.0" prefWidth="83.0" style="-fx-background-color: red;" text="Delete" textFill="WHITE" />
+                        <ComboBox fx:id="cmbDAccountType" layoutX="589.0" layoutY="147.0" prefHeight="26.0" prefWidth="261.0" />
+                        <ComboBox fx:id="cmbDGender" layoutX="589.0" layoutY="362.0" prefHeight="26.0" prefWidth="260.0" />
+                        <DatePicker fx:id="dpDDob" layoutX="589.0" layoutY="403.0" prefHeight="26.0" prefWidth="260.0" />
+                        <TextField fx:id="txtDBranch" editable="false" layoutX="589.0" layoutY="566.0" prefHeight="26.0" prefWidth="262.0" />
+                        <Label layoutX="486.0" layoutY="569.0" prefHeight="21.0" prefWidth="81.0" text="Branch :">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
                      </children></AnchorPane>
               </content>
             </Tab>
@@ -306,7 +321,7 @@
                               <TableColumn prefWidth="86.0" text="Branch" />
                           </columns>
                         </TableView>
-                        <TextField fx:id="txtSearch" layoutX="6.0" layoutY="150.0" prefHeight="35.0" prefWidth="337.0" promptText="Search" />
+                        <TextField fx:id="txtSearch" layoutX="6.0" layoutY="150.0" onKeyPressed="#txtSearch_OnKeyPressed" prefHeight="35.0" prefWidth="337.0" promptText="Search" />
                         <ImageView fitHeight="156.0" fitWidth="184.0" layoutX="724.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../asset/images.png" />
@@ -324,22 +339,22 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <TextField layoutX="263.0" layoutY="69.0" prefHeight="26.0" prefWidth="499.0" />
+                        <TextField fx:id="txtTransactionSearch" layoutX="263.0" layoutY="69.0" onKeyPressed="#txtTransactionSearch" prefHeight="26.0" prefWidth="499.0" />
                         <Label layoutX="78.0" layoutY="69.0" text="Account Number">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <JFXButton layoutX="782.0" layoutY="69.0" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #00e600;" text="Search" />
-                        <TableView layoutX="11.0" layoutY="329.0" prefHeight="437.0" prefWidth="943.0">
+                        <JFXButton fx:id="btnTSearch" layoutX="782.0" layoutY="69.0" onAction="#btnTSearch" prefHeight="26.0" prefWidth="91.0" style="-fx-background-color: #00e600;" text="Search" />
+                        <TableView fx:id="tblTransaction" layoutX="4.0" layoutY="329.0" prefHeight="448.0" prefWidth="1036.0">
                           <columns>
-                            <TableColumn prefWidth="116.0" text="Transaction ID" />
-                            <TableColumn minWidth="0.0" prefWidth="156.0" text="Account Number" />
-                              <TableColumn text="Type" />
-                              <TableColumn prefWidth="120.0" text="Date" />
-                              <TableColumn prefWidth="167.0" text="Ammount" />
-                              <TableColumn prefWidth="118.0" text="User ID" />
-                              <TableColumn prefWidth="184.0" text="Branch" />
+                            <TableColumn prefWidth="149.0" text="Transaction ID" />
+                            <TableColumn minWidth="0.0" prefWidth="158.0" text="Account Number" />
+                              <TableColumn prefWidth="89.0" text="Type" />
+                              <TableColumn prefWidth="122.0" text="Date" />
+                              <TableColumn prefWidth="166.0" text="Ammount" />
+                              <TableColumn prefWidth="165.0" text="User ID" />
+                              <TableColumn prefWidth="186.0" text="Branch" />
                           </columns>
                         </TableView>
                      </children></AnchorPane>
@@ -362,19 +377,19 @@
             <VBox layoutX="1.0" layoutY="663.0" prefHeight="156.0" prefWidth="325.0">
                <children>
                   <Line endX="214.2928924560547" endY="0.2928932309150696" opacity="0.31" startX="-100.0" stroke="WHITE" />
-                  <JFXButton prefHeight="46.0" prefWidth="315.0" text="Calculator" textFill="WHITE">
+                  <JFXButton onAction="#calculator_OnAction" prefHeight="46.0" prefWidth="315.0" text="Calculator" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </JFXButton>
                   <Line endX="214.2928924560547" endY="0.17157286405563354" opacity="0.31" startX="-107.77818298339844" startY="0.3431282043457031" stroke="WHITE" />
-                  <JFXButton prefHeight="47.0" prefWidth="315.0" text="Notepad" textFill="WHITE">
+                  <JFXButton onAction="#notePad_OnAction" prefHeight="47.0" prefWidth="315.0" text="Notepad" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </JFXButton>
                   <Line endX="214.2928924560547" endY="1.2928855419158936" opacity="0.31" startX="-109.19239807128906" startY="-0.12132801115512848" stroke="WHITE" />
-                  <JFXButton prefHeight="47.0" prefWidth="315.0" text="Currency Convertor" textFill="WHITE">
+                  <JFXButton onAction="#btnCurencyConvertor_OnAction" prefHeight="47.0" prefWidth="315.0" text="Currency Convertor" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -397,7 +412,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="lblUserId" layoutX="178.0" layoutY="267.0" text="U002" textFill="WHITE" />
+            <Label fx:id="lblUserId" layoutX="178.0" layoutY="267.0" text="U001" textFill="WHITE" />
             <Label fx:id="lblUserName" layoutX="178.0" layoutY="293.0" text="Shahid" textFill="WHITE" />
             <Label fx:id="lblBranchId" layoutX="178.0" layoutY="315.0" text="B001" textFill="WHITE" />
          </children></Pane>

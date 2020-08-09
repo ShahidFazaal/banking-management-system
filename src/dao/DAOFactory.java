@@ -1,9 +1,6 @@
 package dao;
 
-import dao.custom.impl.BranchDAOImpl;
-import dao.custom.impl.CustomerDAOImpl;
-import dao.custom.impl.TransactionDAOImpl;
-import dao.custom.impl.UserDAOImpl;
+import dao.custom.impl.*;
 
 public class DAOFactory {
     private static DAOFactory daoFactory;
@@ -23,6 +20,8 @@ public class DAOFactory {
                 return (T) new TransactionDAOImpl();
             case USER:
                 return (T) new UserDAOImpl();
+            case QUERY:
+                return (T) new QueryDAOImpl();
             default:
                 return null;
         }
